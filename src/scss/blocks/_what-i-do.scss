@@ -15,7 +15,7 @@
   }
 
   &__title {
-    text-align: left; // На мобильных заголовок слева
+    text-align: left;
     margin-bottom: 40px;
   }
 
@@ -23,24 +23,21 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    // Инициализируем счетчик для нумерации
+
     counter-reset: service-counter;
   }
 
   &__item {
     padding: 30px 0;
-    // Увеличиваем счетчик для каждого элемента
+
     counter-increment: service-counter;
 
-    // Рисуем линию-разделитель сверху
-    border-top: 1px solid #dedad1; // Подберите цвет по макету
+    border-top: 1px solid #dedad1;
 
-    // Используем Flexbox для выравнивания номера и текста
     display: flex;
     align-items: flex-start;
-    gap: 25px; // Расстояние между номером и текстом
+    gap: 25px;
 
-    // Убираем верхнюю границу у первого элемента
     &:first-child {
       border-top: none;
       padding-top: 0;
@@ -51,12 +48,10 @@
   }
 
   &__item::before {
-    // --- Магия псевдоэлементов для создания номера ---
-    content: "0" counter(service-counter); // Генерируем текст "01", "02" и т.д.
+    content: "0" counter(service-counter);
     font-family: $bold-font, sans-serif;
     color: $border-text-btn-color;
     font-size: 18px;
-    // Задаем фиксированную ширину, чтобы текст не "прыгал"
     min-width: 30px;
   }
 
@@ -74,23 +69,18 @@
     line-height: 1.6;
   }
 
-  // --- Планшетная версия ---
-  // Стили почти не меняются, поэтому отдельный блок не нужен.
-  // Макет просто становится шире.
-
   // --- Десктопная версия ---
   @include desktop {
     &__container {
-      // Используем Grid для создания двух колонок
       display: grid;
-      grid-template-columns: 1fr 1fr; // Две равные колонки
-      gap: 60px; // Расстояние между картинкой и текстом
-      align-items: center; // Выравниваем колонки по центру по вертикали
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
     &__image-wrapper {
-      min-height: 600px; // Увеличиваем высоту картинки
-      margin-bottom: 0; // Убираем нижний отступ, так как теперь есть gap
+      min-height: 600px;
+      margin-bottom: 0;
     }
   }
 }

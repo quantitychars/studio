@@ -1,34 +1,30 @@
-// Файл: src/scss/blocks/_contact.scss
-
 .contact {
   padding: 80px 0;
-  border-top: 1px solid #dedad1; // Змінив на суцільну лінію, як на макеті
+  border-top: 1px solid #dedad1;
   border-bottom: 1px solid #dedad1;
 }
 
 // --- Спільні стилі для всіх розширень ---
 .contact__container {
-  display: grid; // Вмикаємо Grid одразу
-  gap: 20px 80px; // 20px по вертикалі, 80px по горизонталі
-  // На мобільних буде одна колонка, на десктопі - дві
+  display: grid;
+  gap: 20px 80px;
 }
 
 // --- Мобільна та планшетна версії ---
 .contact__title {
   margin: 0;
-  // На мобільних заголовок займає всю ширину
+
   grid-column: 1 / -1;
-  justify-self: center; // Центруємо сам заголовок
+  justify-self: center;
   text-align: center;
-  margin-bottom: 10px; // Додаємо відступ знизу
+  margin-bottom: 10px;
 }
 
 .contact__main-heading,
 .contact__text,
 .contact__button {
-  // Всі елементи контенту теж займають всю ширину
   grid-column: 1 / -1;
-  text-align: center; // І центруємо текст всередині них
+  text-align: center;
 }
 
 .contact__main-heading {
@@ -37,7 +33,7 @@
   font-size: 32px;
   line-height: 1.3;
   max-width: 800px;
-  justify-self: center; // Центруємо сам блок
+  justify-self: center;
 }
 
 .contact__text {
@@ -50,33 +46,29 @@
 }
 
 .contact__button {
-  justify-self: center; // Центруємо кнопку
+  justify-self: center;
 }
 
 // --- Адаптація для ДЕСКТОПА ---
 @include desktop {
   .contact__container {
-    // Просто змінюємо шаблон колонок, решта стилів вже є
-    grid-template-columns: auto 1fr; // Ліва колонка по контенту, права - решта
-    align-items: center; // Вирівнюємо по вертикалі
+    grid-template-columns: auto 1fr;
+    align-items: center;
   }
 
   .contact__title {
-    // Повертаємо заголовок в першу колонку
     grid-column: 1 / 2;
     margin-bottom: 0;
-    justify-self: start; // Вирівнюємо по лівому краю
-    // Збільшуємо розмір, щоб він був пропорційний
-    font-size: 100px; // Підберіть точний розмір по макету
+    justify-self: start;
+    font-size: 100px;
   }
 
   .contact__main-heading,
   .contact__text,
   .contact__button {
-    // Повертаємо контент в другу колонку
     grid-column: 2 / 3;
-    text-align: left; // Вирівнюємо текст по лівому краю
-    justify-self: start; // Вирівнюємо самі блоки по лівому краю
+    text-align: left;
+    justify-self: start;
   }
 
   .contact__main-heading {

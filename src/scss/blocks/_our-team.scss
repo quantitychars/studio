@@ -1,5 +1,3 @@
-// Файл: src/scss/blocks/_our-team.scss
-
 .our-team {
   padding: 60px 0;
 }
@@ -13,13 +11,13 @@
 .our-team__list {
   display: flex;
   flex-direction: column;
-  gap: 50px; // Расстояние между карточками
+  gap: 50px;
 }
 
 .our-team__member {
   display: flex;
   flex-direction: column;
-  align-items: center; // Центрируем все по горизонтали
+  align-items: center;
   text-align: center;
 }
 
@@ -47,11 +45,6 @@
   font-size: 14px;
 }
 
-.our-team__social-list {
-  // Стили для этого блока уже должны быть
-}
-
-// Стили для блока "Call to Action"
 .our-team__cta {
   text-align: center;
 }
@@ -74,15 +67,14 @@
 @include tablet {
   .our-team__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // 2 колонки
-    gap: 50px 30px; // 50px по вертикали, 30px по горизонтали
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
   }
 
   .our-team__member {
-    align-items: flex-start; // Выравниваем по левому краю
+    align-items: flex-start;
     text-align: left;
 
-    // Меняем порядок элементов: сначала текст, потом фото
     .our-team__member-photo-link {
       order: 2;
     }
@@ -99,19 +91,17 @@
 // --- Адаптация для ДЕСКТОПА ---
 @include desktop {
   .our-team__title {
-    text-align: left; // Смещаем заголовок влево
+    text-align: left;
   }
 
   .our-team__list {
-    grid-template-columns: repeat(4, 1fr); // 4 колонки
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .our-team__cta {
-    // Заставляем этот блок занять 2 колонки
     grid-column: span 2;
-    // Выравниваем его по центру вертикальной оси сетки
     align-self: center;
     text-align: left;
-    padding-left: 20px; // Добавим немного отступа слева
+    padding-left: 20px;
   }
 }

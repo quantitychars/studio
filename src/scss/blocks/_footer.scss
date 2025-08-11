@@ -1,40 +1,31 @@
-// Файл: src/scss/blocks/_footer.scss
-
 .footer {
   padding: 40px 0;
-  // Верхняя рамка-разделитель
-  border-top: 1px solid #dedad1; // Подберите цвет по макету
+  border-top: 1px solid #dedad1;
 }
 
-// --- Мобильная версия (по умолчанию) ---
+// --- Мобильная версия  ---
 .footer__container {
   display: flex;
-  flex-direction: column; // Элементы идут друг под другом
-  align-items: center; // Центрируем их по горизонтали
-  gap: 20px; // Расстояние между копирайтом и иконками
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-
 .footer__copyright {
   margin: 0;
   font-family: $footer-font, sans-serif;
   font-size: 14px;
   text-align: center;
-  // Делаем текст немного светлее, чем основной
-  //   color: lighten($border-text-btn-color, 35%);
 }
 
 // Стили для списка иконок
 .footer__social-list {
-  // Основные стили для .social-list уже должны быть заданы,
-  // но если нет, вот они:
   display: flex;
   align-items: center;
-  gap: 15px; // Расстояние между иконками
+  gap: 15px;
   padding: 0;
   margin: 0;
   list-style: none;
 
-  // Эффект при наведении на иконки в футере
   .social-list__link {
     transition: opacity 0.3s ease;
     &:hover {
@@ -46,7 +37,7 @@
 // --- Адаптация для ПЛАНШЕТА и ДЕСКТОПА ---
 @include tablet {
   .footer__container {
-    flex-direction: row; // Выстраиваем элементы в ряд
-    justify-content: space-between; // Расталкиваем по краям
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
