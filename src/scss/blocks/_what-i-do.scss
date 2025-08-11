@@ -1,0 +1,96 @@
+// Файл: src/scss/blocks/_what-i-do.scss
+
+.what-i-do {
+  padding: 60px 0; // Внешние отступы секции
+
+  // --- Мобильная версия ---
+
+  &__image-wrapper {
+    // Декоративный фон
+    background-image: url("../images/what-i-do-bg.jpg"); // Укажите правильный путь к картинке
+    background-size: cover;
+    background-position: center;
+    min-height: 250px; // Высота картинки на мобильном
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    text-align: left; // На мобильных заголовок слева
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    // Инициализируем счетчик для нумерации
+    counter-reset: service-counter;
+  }
+
+  &__item {
+    padding: 30px 0;
+    // Увеличиваем счетчик для каждого элемента
+    counter-increment: service-counter;
+
+    // Рисуем линию-разделитель сверху
+    border-top: 1px solid #dedad1; // Подберите цвет по макету
+
+    // Используем Flexbox для выравнивания номера и текста
+    display: flex;
+    align-items: flex-start;
+    gap: 25px; // Расстояние между номером и текстом
+
+    // Убираем верхнюю границу у первого элемента
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__item::before {
+    // --- Магия псевдоэлементов для создания номера ---
+    content: "0" counter(service-counter); // Генерируем текст "01", "02" и т.д.
+    font-family: $bold-font, sans-serif;
+    color: $border-text-btn-color;
+    font-size: 18px;
+    // Задаем фиксированную ширину, чтобы текст не "прыгал"
+    min-width: 30px;
+  }
+
+  &__item-title {
+    margin: 0 0 10px 0;
+    font-family: $bold-font, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  &__item-text {
+    margin: 0;
+    font-family: $light-font, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  // --- Планшетная версия ---
+  // Стили почти не меняются, поэтому отдельный блок не нужен.
+  // Макет просто становится шире.
+
+  // --- Десктопная версия ---
+  @include desktop {
+    &__container {
+      // Используем Grid для создания двух колонок
+      display: grid;
+      grid-template-columns: 1fr 1fr; // Две равные колонки
+      gap: 60px; // Расстояние между картинкой и текстом
+      align-items: center; // Выравниваем колонки по центру по вертикали
+    }
+
+    &__image-wrapper {
+      min-height: 600px; // Увеличиваем высоту картинки
+      margin-bottom: 0; // Убираем нижний отступ, так как теперь есть gap
+    }
+  }
+}

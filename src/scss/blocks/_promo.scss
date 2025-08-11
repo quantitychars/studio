@@ -1,0 +1,128 @@
+// Файл: src/scss/blocks/_promo.scss
+
+.promo {
+  // Первая часть секции с заголовком, занимает весь экран
+  &__heading {
+    // Делаем блок высотой с экран минус высота хедера (предположим, 80px)
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $header-font, sans-serif; // Используем ваш шрифт
+    font-size: 44px; // Базовый размер для мобильных
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__subtitle {
+    margin: 10px 0 0 0;
+    font-family: $light-font, sans-serif; // Используем ваш шрифт
+    font-size: 22px; // Базовый размер для мобильных
+  }
+
+  &__scroll-down {
+    margin-top: 30px;
+  }
+
+  // Вторая часть секции с контентом (фото, описание и т.д.)
+  &__about {
+    // Внутренний отступ сверху, чтобы отделить от заголовка
+    padding-top: 50px;
+  }
+
+  &__photo {
+    width: 100%;
+    height: auto;
+  }
+
+  &__description {
+    padding: 40px 0;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 700px; // Ограничиваем ширину текста на больших экранах
+    margin: 0 auto; // Центрируем блок с текстом
+
+    strong {
+      // Задаем жирное начертание для выделенного текста
+      font-family: $bold-font, sans-serif;
+    }
+  }
+
+  // --- Блок "ABOUT ME" с темным фоном ---
+  // Примечание: для лучшего результата оберните h2.promo__about-title и ul.promo__social-list в один div
+  // Но этот код будет работать и с вашей текущей HTML-структурой.
+
+  &__about-title {
+    margin: 0;
+    padding: 40px 15px 20px;
+    background-color: $border-text-btn-color;
+    color: $bg-color; // Используем светлый цвет фона как цвет текста
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-family: $footer-font, sans-serif;
+  }
+
+  &__social-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0 15px 40px;
+    background-color: $border-text-btn-color; // Применяем тот же фон
+  }
+
+  // --- Блок с логотипами клиентов ---
+  &__clients-logos {
+    display: flex;
+    flex-wrap: wrap; // Позволяем логотипам переноситься на новую строку
+    justify-content: center;
+    align-items: center;
+    gap: 20px 40px; // 20px по вертикали, 40px по горизонтали
+    padding: 50px 0;
+  }
+}
+
+// --- Адаптация для ПЛАНШЕТА ---
+@include tablet {
+  .promo {
+    &__title {
+      font-size: 64px; // Увеличиваем шрифт
+    }
+
+    &__subtitle {
+      font-size: 30px;
+    }
+
+    &__description {
+      font-size: 22px;
+    }
+  }
+}
+
+// --- Адаптация для ДЕСКТОПА ---
+@include desktop {
+  .promo {
+    &__title {
+      font-size: 86px; // Еще увеличиваем
+    }
+
+    &__subtitle {
+      font-size: 36px;
+    }
+
+    // На десктопе блок "About me" и описание могут встать рядом.
+    // Для этого понадобится изменить HTML или использовать Grid.
+    // Пока оставляем их друг под другом для простоты.
+  }
+}

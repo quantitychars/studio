@@ -1,0 +1,32 @@
+// Файл: src/scss/_base.scss
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: $Gilroy-font, sans-serif; // Используем ваш базовый шрифт
+  background-color: $bg-color; // Используем ваш цвет фона
+  color: $border-text-btn-color; // Используем ВАШУ переменную для цвета текста
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

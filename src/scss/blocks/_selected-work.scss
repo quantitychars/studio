@@ -1,0 +1,204 @@
+// Файл: src/scss/blocks/_selected-work.scss
+
+.selected-work {
+  padding: 60px 0;
+
+  &__title {
+    // Этот класс уже должен быть стилизован в _base.scss,
+    // но если нужно, можно добавить специфичные отступы тут.
+    margin-bottom: 40px;
+    text-align: center; // Центрируем на мобильных
+  }
+
+  &__gallery {
+    // Используем flex, чтобы легко задать отступы между проектами
+    display: flex;
+    flex-direction: column;
+    gap: 60px; // Расстояние между проектами "TRINITY" и "MORPHEUS"
+  }
+
+  // --- Стили для отдельного проекта ---
+  &__project {
+    // На мобильных это просто контейнер
+  }
+
+  &__image {
+    // На мобильных картинки просто идут друг под другом
+    // Добавим отступ между ними
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__info {
+    // Отступ от картинок на мобильных
+    margin-top: 20px;
+  }
+
+  &__project-title {
+    margin: 0 0 20px 0;
+    font-family: $bold-font, sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap; // Позволяем тегам переноситься, если нужно
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #dedad1; // Подберите цвет по макету
+    border-radius: 100px; // Делаем "пилюлю"
+    text-decoration: none;
+    color: $border-text-btn-color;
+    font-size: 14px;
+    font-family: $footer-font, sans-serif; // Используем ваш шрифт
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $border-text-btn-color;
+      color: $bg-color;
+    }
+  }
+
+  &__discover-link {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 100px;
+    text-decoration: none;
+    background-color: $border-text-btn-color;
+    color: $bg-color;
+    font-size: 14px;
+    font-family: $footer-font, sans-serif;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__view-all-button {
+    display: block; // Делаем кнопу блочной, чтобы применить margin: auto
+    width: fit-content; // Ширина по содержимому
+    margin: 60px auto 0; // Центрируем кнопку и добавляем отступ сверху
+    // Копируем стили из тега, но можем их переопределить
+    padding: 12px 30px;
+    border: 1px solid #dedad1;
+    border-radius: 100px;
+    text-decoration: none;
+    color: $border-text-btn-color;
+    background-color: transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $border-text-btn-color;
+      color: $bg-color;
+    }
+  }
+
+  // --- Адаптация для ДЕСКТОПА ---
+  @include desktop {
+    &__title {
+      text-align: left; // Смещаем заголовок влево
+    }
+
+    &__project {
+      // "Включаем" магию Grid!
+      display: grid;
+      // Две колонки, вторая в два раза шире первой
+      grid-template-columns: 1fr 2fr;
+      gap: 30px; // Пространство между колонками
+      align-items: center; // Выравниваем по центру вертикали
+
+      // Задаем имена для областей сетки
+      grid-template-areas: "info images";
+    }
+
+    &__info {
+      grid-area: info; // Помещаем блок .info в область "info"
+      margin-top: 0; // Убираем мобильный отступ
+    }
+
+    // Оборачиваем картинки в дополнительный grid для легкого размещения
+    .selected-work__project > .selected-work__image {
+      grid-area: images; // Этот селектор не сработает, так как у нас несколько картинок
+      // Вместо этого мы создадим обертку для картинок прямо в CSS
+    }
+
+    // Создаем контейнер для картинок с помощью display: contents,
+    // чтобы не менять HTML.
+    .selected-work__project {
+      // Мы используем display: contents, чтобы "пробросить" картинки
+      // как прямых потомков .selected-work__project для грида
+      .selected-work__image:nth-child(1) {
+        grid-area: image1;
+      }
+      .selected-work__image:nth-child(2) {
+        grid-area: image2;
+      }
+
+      // Переопределяем сетку для более сложного макета
+      grid-template-columns: 1fr 1fr 1fr 1fr; // 4 колонки
+      grid-template-rows: auto auto; // 2 строки
+      align-items: start;
+
+      // Определяем раскладку для первого проекта
+      grid-template-areas:
+        "info info image1 image2"
+        ".    .    image1 image2";
+
+      // Определяем раскладку для второго (четного) проекта
+      &:nth-child(even) {
+        grid-template-areas:
+          "image1 image2 info info"
+          "image1 image2 .    .";
+      }
+    }
+
+    // Помещаем блок .info в нужную область
+    &__info {
+      grid-area: info;
+    }
+
+    // И картинки
+    .selected-work__image:nth-child(1) {
+      grid-area: image1;
+      align-self: end; // Прижимаем первую картинку к низу ее ячейки
+    }
+    .selected-work__image:nth-child(2) {
+      grid-area: image2;
+      align-self: start; // Прижимаем вторую картинку к верху ее ячейки
+    }
+
+    // Скорректируем отступы для десктопа
+    &__project-title {
+      font-size: 32px;
+    }
+    &__info {
+      // Выравниваем .discover-link по правому краю
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .selected-work__discover-link {
+        margin-top: 20px;
+      }
+    }
+
+    // Для второго проекта выравниваем по-другому
+    // &__project:nth-child(even) {
+    //   &__info {
+    //     align-items: flex-end; // Сдвигаем все вправо
+    //     text-align: right;
+    //   }
+    //   .selected-work__tags {
+    //     justify-content: flex-end;
+    //   }
+    // }
+  }
+}
