@@ -1,108 +1,127 @@
-.our-team {
+.my-clients {
   padding: 60px 0;
 }
 
-.our-team__title {
-  text-align: center;
+.my-clients__title {
   margin-bottom: 50px;
-}
-
-// --- Мобильная версия ---
-.our-team__list {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.our-team__member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-.our-team__member-photo {
-  width: 100%;
-  margin-bottom: 20px;
+// --- Мобільна версія (одна колонка) ---
+
+.my-clients__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; // Відстань між відгуками на мобільній версії
 }
 
-.our-team__member-info-link {
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 20px;
+.my-clients__testimonial {
+  // На мобільних немає рамок, відгуки просто йдуть один за одним
+  border-top: 1px solid var(--border-color);
+  padding-top: 40px;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
-.our-team__member-name {
-  margin: 0 0 8px 0;
+.my-clients__company-logo {
+  margin-bottom: 25px;
+  max-height: 24px;
+  width: auto;
+}
+
+.my-clients__quote-title {
+  margin: 0 0 15px 0;
   font-family: $bold-font, sans-serif;
-  font-size: 18px;
-  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--text-color);
 }
 
-.our-team__member-role {
+.my-clients__quote-text {
+  margin: 0 0 30px 0;
+  font-family: $light-font, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(
+    --subtle-text-color
+  ); // Використовуємо колір для другорядного тексту
+}
+
+.my-clients__author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.my-clients__author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.my-clients__author-name {
   margin: 0;
+  font-family: $medium-font, sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.my-clients__author-role {
+  margin: 4px 0 0 0;
   font-family: $light-font, sans-serif;
   font-size: 14px;
+  color: var(--subtle-text-color);
 }
 
-// Стили для блока "Call to Action"
-.our-team__cta {
-  text-align: center;
-}
-
-.our-team__cta-subtitle {
-  margin: 0 0 10px 0;
-  font-family: $footer-font, sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.our-team__cta-title {
-  margin: 0 0 25px 0;
-  font-family: $header-font, sans-serif;
-  font-size: 28px;
-  line-height: 1.3;
-}
-
-// --- Адаптация для ПЛАНШЕТА ---
+// --- Адаптація для ПЛАНШЕТА (дві колонки) ---
 @include tablet {
-  .our-team__list {
+  .my-clients__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px 30px;
+    grid-template-columns: repeat(2, 1fr); // Створюємо 2 колонки
+    gap: 0; // Скидаємо flex-gap, бо будемо використовувати рамки
   }
 
-  .our-team__member {
-    align-items: flex-start;
-    text-align: left;
+  .my-clients__testimonial {
+    padding: 30px; // Додаємо внутрішні відступи
+    border-top: none; // Прибираємо мобільні рамки
 
-    .our-team__member-photo-link {
-      order: 2;
+    // Додаємо праву рамку для першої колонки
+    &:nth-child(odd) {
+      border-right: 1px solid var(--border-color);
     }
-    .our-team__member-info-link {
-      order: 1;
-      margin-bottom: 20px;
-    }
-    .our-team__social-list {
-      order: 3;
+
+    // Додаємо нижню рамку для всіх, крім останнього ряду
+    &:not(:nth-last-child(-n + 2)) {
+      border-bottom: 1px solid var(--border-color);
     }
   }
 }
 
-// --- Адаптация для ДЕСКТОПА ---
+// --- Адаптація для ДЕСКТОПА (три колонки) ---
 @include desktop {
-  .our-team__title {
-    text-align: left;
+  .my-clients__list {
+    grid-template-columns: repeat(3, 1fr); // Створюємо 3 колонки
   }
 
-  .our-team__list {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .my-clients__testimonial {
+    padding: 40px;
 
-  .our-team__cta {
-    grid-column: span 2;
-    align-self: center;
-    text-align: left;
-    padding-left: 20px;
+    // Скидаємо планшетні рамки, щоб не було конфліктів
+    border-right: none;
+    border-bottom: none;
+
+    // Додаємо праву рамку для всіх, крім останньої колонки
+    &:not(:nth-child(3n)) {
+      border-right: 1px solid var(--border-color);
+    }
+
+    // Додаємо нижню рамку для першого ряду (перші 3 елементи)
+    &:nth-child(-n + 3) {
+      border-bottom: 1px solid var(--border-color);
+    }
   }
 }

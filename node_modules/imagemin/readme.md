@@ -1,39 +1,58 @@
-# imagemin
+# imagemin [![Build Status](https://travis-ci.org/imagemin/imagemin.svg?branch=master)](https://travis-ci.org/imagemin/imagemin)
 
 > Minify images seamlessly
 
+---
+
+<div align="center">
+	<sup>Gumlet is helping make open source sustainable by sponsoring Sindre Sorhus.</sup>
+	<a href="https://www.gumlet.com">
+		<div>
+			<img src="https://sindresorhus.com/assets/thanks/gumlet-logo.svg" width="300"/>
+		</div>
+		<sup><b>Optimised Image Delivery made simple</b></sup>
+	</a>
+</div>
+
+---
+
+
 ## Install
 
-```sh
-npm install imagemin
 ```
+$ npm install imagemin
+```
+
 
 ## Usage
 
 ```js
-import imagemin from 'imagemin';
-import imageminJpegtran from 'imagemin-jpegtran';
-import imageminPngquant from 'imagemin-pngquant';
+const imagemin = require('imagemin');
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminPngquant = require('imagemin-pngquant');
 
-const files = await imagemin(['images/*.{jpg,png}'], {
-	destination: 'build/images',
-	plugins: [
-		imageminJpegtran(),
-		imageminPngquant({
-			quality: [0.6, 0.8]
-		})
-	]
-});
+(async () => {
+	const files = await imagemin(['images/*.{jpg,png}'], {
+		destination: 'build/images',
+		plugins: [
+			imageminJpegtran(),
+			imageminPngquant({
+				quality: [0.6, 0.8]
+			})
+		]
+	});
 
-console.log(files);
-//=> [{data: <Uint8Array 89 50 4e …>, destinationPath: 'build/images/foo.jpg'}, …]
+	console.log(files);
+	//=> [{data: <Buffer 89 50 4e …>, destinationPath: 'build/images/foo.jpg'}, …]
+})();
 ```
+
 
 ## API
 
 ### imagemin(input, options?)
 
-Returns `Promise<object[]>` in the format `{data: Uint8Array, sourcePath: string, destinationPath: string}`.
+Returns `Promise<object[]>` in the format `{data: Buffer, sourcePath: string, destinationPath: string}`.
 
 #### input
 
@@ -55,24 +74,24 @@ Set the destination folder to where your files will be written. If no destinatio
 
 Type: `Array`
 
-The [plugins](https://www.npmjs.com/browse/keyword/imageminplugin) to use.
+[Plugins](https://www.npmjs.com/browse/keyword/imageminplugin) to use.
 
 ##### glob
 
-Type: `boolean`\
+Type: `boolean`<br>
 Default: `true`
 
 Enable globbing when matching file paths.
 
-### imagemin.buffer(data, options?)
+### imagemin.buffer(buffer, options?)
 
-Returns `Promise<Uint8Array>`.
+Returns `Promise<Buffer>`.
 
-#### data
+#### buffer
 
-Type: `Uint8Array`
+Type: `Buffer`
 
-The image data to optimize.
+Buffer to optimize.
 
 #### options
 
@@ -84,7 +103,17 @@ Type: `Array`
 
 [Plugins](https://www.npmjs.com/browse/keyword/imageminplugin) to use.
 
+## Hosted API
+
+We also provide a hosted API for imagemin which may simplify your use case.
+
+<a href="https://imagemin.saasify.sh">
+	<img src="https://badges.saasify.sh?text=View%20Hosted%20API" height="40"/>
+</a>
+
 ## Related
 
 - [imagemin-cli](https://github.com/imagemin/imagemin-cli) - CLI for this module
+- [imagemin-app](https://github.com/imagemin/imagemin-app) - GUI app for this module
 - [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin) - Gulp plugin
+- [grunt-contrib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) - Grunt plugin

@@ -1,3 +1,119 @@
+// .promo {
+//   &__heading {
+//     min-height: calc(100vh - 80px);
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+//   }
+
+//   &__title {
+//     margin: 0;
+//     font-family: $header-font, sans-serif;
+//     font-size: 44px;
+//     line-height: 1.1;
+//     text-transform: uppercase;
+//     letter-spacing: 2px;
+//   }
+
+//   &__subtitle {
+//     margin: 10px 0 0 0;
+//     font-family: $light-font, sans-serif;
+//     font-size: 22px;
+//   }
+
+//   &__scroll-down {
+//     margin-top: 30px;
+//   }
+
+//   &__about {
+//     padding-top: 50px;
+//   }
+
+//   &__photo {
+//     width: 100%;
+//     height: auto;
+//   }
+
+//   &__description {
+//     padding: 40px 0;
+//     font-size: 18px;
+//     text-align: center;
+//     line-height: 1.6;
+//     max-width: 700px;
+//     margin: 0 auto;
+
+//     strong {
+//       font-family: $bold-font, sans-serif;
+//     }
+//   }
+
+//   &__about-title {
+//     margin: 0;
+//     padding: 40px 15px 20px;
+//     background-color: $border-text-btn-color;
+//     color: $bg-color;
+//     text-align: center;
+//     text-transform: uppercase;
+//     letter-spacing: 2px;
+//     font-size: 14px;
+//     font-family: $footer-font, sans-serif;
+//   }
+
+//   &__social-list {
+//     display: flex;
+//     justify-content: center;
+//     gap: 20px;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0 15px 40px;
+//     background-color: $border-text-btn-color;
+//   }
+
+//   // --- Блок с логотипами клиентов ---
+//   &__clients-logos {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20px 40px;
+//     padding: 50px 0;
+//   }
+// }
+
+// // --- Адаптация для ПЛАНШЕТА ---
+// @include tablet {
+//   .promo {
+//     &__title {
+//       font-size: 64px;
+//     }
+
+//     &__subtitle {
+//       font-size: 30px;
+//     }
+
+//     &__description {
+//       font-size: 22px;
+//     }
+//   }
+// }
+
+// // --- Адаптация для ДЕСКТОПА ---
+// @include desktop {
+//   .promo {
+//     &__title {
+//       font-size: 86px;
+//     }
+
+//     &__subtitle {
+//       font-size: 36px;
+//     }
+//   }
+// }
+
+// Файл: src/scss/blocks/_promo.scss
+
 .promo {
   &__heading {
     min-height: calc(100vh - 80px);
@@ -43,7 +159,6 @@
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto;
-
     strong {
       font-family: $bold-font, sans-serif;
     }
@@ -52,8 +167,8 @@
   &__about-title {
     margin: 0;
     padding: 40px 15px 20px;
-    background-color: $border-text-btn-color;
-    color: $bg-color;
+    background-color: #5a5858;
+    color: var(--background-color);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -68,10 +183,9 @@
     list-style: none;
     margin: 0;
     padding: 0 15px 40px;
-    background-color: $border-text-btn-color;
+    background-color: #5a5858;
   }
 
-  // --- Блок с логотипами клиентов ---
   &__clients-logos {
     display: flex;
     flex-wrap: wrap;
@@ -82,30 +196,25 @@
   }
 }
 
-// --- Адаптация для ПЛАНШЕТА ---
 @include tablet {
   .promo {
     &__title {
       font-size: 64px;
     }
-
     &__subtitle {
       font-size: 30px;
     }
-
     &__description {
       font-size: 22px;
     }
   }
 }
 
-// --- Адаптация для ДЕСКТОПА ---
 @include desktop {
   .promo {
     &__title {
       font-size: 86px;
     }
-
     &__subtitle {
       font-size: 36px;
     }

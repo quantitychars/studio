@@ -1,25 +1,23 @@
 {
-  "type": "module",
   "name": "studio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Your project description",
   "main": "gulpfile.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "build": "gulp build"
   },
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^10.4.21",
-    "browser-sync": "^3.0.4",
-    "clean": "^4.0.2",
-    "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^9.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-csso": "^4.0.1",
-    "gulp-imagemin": "^9.1.0",
-    "gulp-sass": "^6.0.1",
-    "imagemin": "^9.0.1",
-    "sass": "^1.90.0"
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.69.5"
   }
 }

@@ -1,77 +1,72 @@
+// Файл: src/scss/blocks/_contact.scss
+
 .contact {
-  padding: 80px 0;
-  border-top: 1px solid #dedad1;
-  border-bottom: 1px solid #dedad1;
+  // На макеті відступи симетричні
+  padding: 100px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
-// --- Спільні стилі для всіх розширень ---
+// --- Мобільна версія (одна колонка, все по центру) ---
 .contact__container {
-  display: grid;
-  gap: 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-// --- Мобільна та планшетна версії ---
 .contact__title {
-  margin: 0;
-
-  grid-column: 1 / -1;
-  justify-self: center;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.contact__main-heading,
-.contact__text,
-.contact__button {
-  grid-column: 1 / -1;
-  text-align: center;
+  // Це наш загальний клас .section-title, але ми перевизначаємо відступ
+  margin: 0 0 30px 0;
+  font-size: 48px; // Розмір на мобільному
 }
 
 .contact__main-heading {
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
   font-family: $bold-font, sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 1.3;
-  max-width: 800px;
-  justify-self: center;
+  max-width: 600px;
 }
 
 .contact__text {
-  margin: 0 0 30px 0;
+  margin: 0 0 35px 0;
   font-family: $light-font, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
-  max-width: 500px;
-  justify-self: center;
-}
-
-.contact__button {
-  justify-self: center;
+  max-width: 450px;
+  color: var(--subtle-text-color);
 }
 
 // --- Адаптація для ДЕСКТОПА ---
 @include desktop {
   .contact__container {
-    grid-template-columns: auto 1fr;
+    // Вмикаємо Grid для точного позиціонування
+    display: grid;
+    // Ліва колонка ~40%, права ~60%
+    grid-template-columns: 0.7fr 1fr;
+    gap: 60px; // Відстань між колонками
     align-items: center;
+    text-align: left;
   }
 
   .contact__title {
-    grid-column: 1 / 2;
-    margin-bottom: 0;
-    justify-self: start;
-    font-size: 100px;
-  }
-
-  .contact__main-heading,
-  .contact__text,
-  .contact__button {
-    grid-column: 2 / 3;
-    text-align: left;
-    justify-self: start;
+    margin: 0;
+    font-size: 120px; // Великий розмір, як на макеті
+    font-family: $main-font, sans-serif; // На макеті шрифт тонший
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    // Вирівнюємо по правому краю своєї колонки
+    justify-self: end;
   }
 
   .contact__main-heading {
-    font-size: 48px;
+    font-size: 40px; // Розмір на десктопі
+    max-width: none; // Прибираємо обмеження ширини
+  }
+
+  .contact__text {
+    font-size: 18px;
+    max-width: none;
   }
 }

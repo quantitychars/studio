@@ -1,3 +1,24 @@
+// ==================== CSS Custom Properties for Theming ====================
+:root {
+  // --- Світла тема (за замовчуванням) ---
+  --background-color: #f5f3ea;
+  --text-color: #252525;
+  --border-color: #dedad1;
+
+  // Додамо ще кілька кольорів для гнучкості
+  --button-text-color: #f5f3ea; // Текст на темній кнопці
+  --subtle-text-color: #757575; // Для менш важливого тексту (напр. посада)
+}
+
+.dark-theme {
+  --background-color: #918f8f; // Робимо фон темним
+  --text-color: #f5f3ea; // Робимо текст світлим
+  --border-color: #484747; // Робимо рамки темнішими
+
+  --button-text-color: #1a1a1a; // Текст на темній кнопці тепер темний
+  --subtle-text-color: #a0a0a0; // Робимо другорядний текст світлішим
+}
+
 // Fonts
 $header-font: Gilroy-SemiBold;
 $Gilroy-font: Gilroy;
@@ -7,9 +28,7 @@ $medium-font: Gilroy-Medium;
 $inter-font: Inter;
 $bold-font: Gilroy-Bold;
 $footer-font: Gilroy-Regular;
-// Colors
-$bg-color: #f5f3ea;
-$border-text-btn-color: #252525;
-// Breakpoints (точки перелома для адаптива)
+
+// Breakpoints
 $tablet: 768px;
 $desktop: 1200px;

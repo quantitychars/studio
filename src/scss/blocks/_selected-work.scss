@@ -1,162 +1,280 @@
-.selected-work {
-  padding: 60px 0;
+// .selected-work {
+//   padding: 60px 0;
 
-  &__title {
-    margin-bottom: 40px;
-    text-align: center;
+//   &__title {
+//     margin-bottom: 40px;
+//     text-align: center;
+//   }
+
+//   &__gallery {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 60px;
+//   }
+
+//   &__image {
+//     &:not(:last-child) {
+//       margin-bottom: 15px;
+//     }
+//   }
+
+//   &__info {
+//     margin-top: 20px;
+//   }
+
+//   &__project-title {
+//     margin: 0 0 20px 0;
+//     font-family: $bold-font, sans-serif;
+//     font-size: 24px;
+//     text-transform: uppercase;
+//   }
+
+//   &__tags {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 10px;
+//     margin-bottom: 20px;
+//   }
+
+//   &__tag {
+//     display: inline-block;
+//     padding: 8px 20px;
+//     border: 1px solid #dedad1;
+//     border-radius: 100px;
+//     text-decoration: none;
+//     color: $border-text-btn-color;
+//     font-size: 14px;
+//     font-family: $footer-font, sans-serif;
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       background-color: $border-text-btn-color;
+//       color: $bg-color;
+//     }
+//   }
+
+//   &__discover-link {
+//     display: inline-block;
+//     padding: 8px 20px;
+//     border-radius: 100px;
+//     text-decoration: none;
+//     background-color: $border-text-btn-color;
+//     color: $bg-color;
+//     font-size: 14px;
+//     font-family: $footer-font, sans-serif;
+//     transition: opacity 0.3s ease;
+
+//     &:hover {
+//       opacity: 0.8;
+//     }
+//   }
+
+//   &__view-all-button {
+//     display: block;
+//     width: fit-content;
+//     margin: 60px auto 0;
+//     padding: 12px 30px;
+//     border: 1px solid #dedad1;
+//     border-radius: 100px;
+//     text-decoration: none;
+//     color: $border-text-btn-color;
+//     background-color: transparent;
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       background-color: $border-text-btn-color;
+//       color: $bg-color;
+//     }
+//   }
+
+//   // --- Адаптация для ДЕСКТОПА ---
+//   @include desktop {
+//     &__title {
+//       text-align: left;
+//     }
+
+//     &__project {
+//       display: grid;
+
+//       grid-template-columns: 1fr 2fr;
+//       gap: 30px;
+//       align-items: center;
+//       grid-template-areas: "info images";
+//     }
+
+//     &__info {
+//       grid-area: info;
+//       margin-top: 0;
+//     }
+
+//     .selected-work__project > .selected-work__image {
+//       grid-area: images;
+//     }
+
+//     .selected-work__project {
+//       .selected-work__image:nth-child(1) {
+//         grid-area: image1;
+//       }
+//       .selected-work__image:nth-child(2) {
+//         grid-area: image2;
+//       }
+
+//       grid-template-columns: 1fr 1fr 1fr 1fr;
+//       grid-template-rows: auto auto;
+//       align-items: start;
+
+//       grid-template-areas:
+//         "info info image1 image2"
+//         ".    .    image1 image2";
+
+//       &:nth-child(even) {
+//         grid-template-areas:
+//           "image1 image2 info info"
+//           "image1 image2 .    .";
+//       }
+//     }
+
+//     &__info {
+//       grid-area: info;
+//     }
+
+//     .selected-work__image:nth-child(1) {
+//       grid-area: image1;
+//       align-self: end;
+//     }
+//     .selected-work__image:nth-child(2) {
+//       grid-area: image2;
+//       align-self: start;
+//     }
+
+//     &__project-title {
+//       font-size: 32px;
+//     }
+//     &__info {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: flex-start;
+
+//       .selected-work__discover-link {
+//         margin-top: 20px;
+//       }
+//     }
+//   }
+// }
+
+// Файл: src/scss/blocks/_selected-work.scss
+
+.button {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: $footer-font, sans-serif;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &--dark {
+    // ВИКОРИСТОВУЄМО CSS-ЗМІННІ
+    background-color: var(--text-color);
+    color: var(--button-text-color);
+    // &:hover {
+    //   background-color: lighten(#252525, 10%); // Hardcoded for consistency
+    // }
   }
 
+  &--light {
+    background-color: transparent;
+    // ВИКОРИСТОВУЄМО CSS-ЗМІННІ
+    color: var(--text-color);
+    border-color: var(--border-color);
+    &:hover {
+      background-color: var(--text-color);
+      color: var(--button-text-color);
+    }
+  }
+}
+
+.selected-work {
+  padding: 60px 0;
+  &__title {
+    margin-bottom: 50px;
+    text-align: center;
+  }
   &__gallery {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 70px;
   }
-
-  &__image {
-    &:not(:last-child) {
-      margin-bottom: 15px;
+  &__images-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__info {
+    margin-top: 25px;
+  }
+  .selected-work__project:nth-child(2) {
+    .selected-work__info {
+      order: 2;
+    }
+    .selected-work__images-wrapper {
+      order: 1;
     }
   }
-
-  &__info {
-    margin-top: 20px;
-  }
-
   &__project-title {
     margin: 0 0 20px 0;
     font-family: $bold-font, sans-serif;
     font-size: 24px;
     text-transform: uppercase;
   }
-
   &__tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
-
   &__tag {
     display: inline-block;
     padding: 8px 20px;
-    border: 1px solid #dedad1;
+    // ВИКОРИСТОВУЄМО CSS-ЗМІННІ
+    border: 1px solid var(--border-color);
     border-radius: 100px;
     text-decoration: none;
-    color: $border-text-btn-color;
+    color: var(--text-color);
     font-size: 14px;
-    font-family: $footer-font, sans-serif;
     transition: all 0.3s ease;
-
     &:hover {
-      background-color: $border-text-btn-color;
-      color: $bg-color;
+      background-color: var(--text-color);
+      color: var(--button-text-color);
     }
   }
-
-  &__discover-link {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 100px;
-    text-decoration: none;
-    background-color: $border-text-btn-color;
-    color: $bg-color;
-    font-size: 14px;
-    font-family: $footer-font, sans-serif;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
   &__view-all-button {
     display: block;
     width: fit-content;
-    margin: 60px auto 0;
-    padding: 12px 30px;
-    border: 1px solid #dedad1;
-    border-radius: 100px;
-    text-decoration: none;
-    color: $border-text-btn-color;
-    background-color: transparent;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: $border-text-btn-color;
-      color: $bg-color;
-    }
+    margin: 70px auto 0;
   }
 
-  // --- Адаптация для ДЕСКТОПА ---
   @include desktop {
     &__title {
       text-align: left;
     }
-
     &__project {
       display: grid;
-
-      grid-template-columns: 1fr 2fr;
-      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 100px;
       align-items: center;
-      grid-template-areas: "info images";
     }
-
     &__info {
-      grid-area: info;
       margin-top: 0;
     }
-
-    .selected-work__project > .selected-work__image {
-      grid-area: images;
-    }
-
-    .selected-work__project {
-      .selected-work__image:nth-child(1) {
-        grid-area: image1;
-      }
-      .selected-work__image:nth-child(2) {
-        grid-area: image2;
-      }
-
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      align-items: start;
-
-      grid-template-areas:
-        "info info image1 image2"
-        ".    .    image1 image2";
-
-      &:nth-child(even) {
-        grid-template-areas:
-          "image1 image2 info info"
-          "image1 image2 .    .";
-      }
-    }
-
-    &__info {
-      grid-area: info;
-    }
-
-    .selected-work__image:nth-child(1) {
-      grid-area: image1;
-      align-self: end;
-    }
-    .selected-work__image:nth-child(2) {
-      grid-area: image2;
-      align-self: start;
-    }
-
-    &__project-title {
-      font-size: 32px;
-    }
-    &__info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-
-      .selected-work__discover-link {
-        margin-top: 20px;
+    &__project:nth-child(even) {
+      .selected-work__info {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
       }
     }
   }

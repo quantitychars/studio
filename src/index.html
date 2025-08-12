@@ -11,13 +11,15 @@
     <header class="header">
       <div class="header__container container">
         <a class="header__logo logo" href="#">
-          <!-- ПРАВИЛЬНИЙ ШЛЯХ: Папка logos -->
           <img
             class="logo__img"
             src="./images/logos/logo-1.svg"
             alt="Company Logo"
           />
         </a>
+        <!-- ДОДАЄМО КНОПКУ -->
+        <button class="theme-switcher" type="button">Змінити тему</button>
+
         <nav class="header__nav">
           <ul class="header__nav-list">
             <li class="header__nav-item">
@@ -50,14 +52,9 @@
           <div class="promo__heading">
             <h1 class="promo__title">DIANNE RUSSELL</h1>
             <p class="promo__subtitle">Digital Design</p>
-            <a href="#about-me" class="promo__scroll-down">
-              <!-- Примітка: у вас немає файлу для стрілки, я залишаю шлях порожнім -->
-              <img src="#" alt="Scroll down" />
-            </a>
           </div>
 
           <div class="promo__about" id="about-me">
-            <!-- ПРАВИЛЬНИЙ ШЛЯХ: Картинка лежить прямо в /images -->
             <img
               class="promo__photo"
               src="images/hero-image.jpg"
@@ -70,7 +67,6 @@
             </p>
             <h2 class="promo__about-title">ABOUT ME</h2>
             <ul class="promo__social-list social-list">
-              <!-- ПРАВИЛЬНИЙ ШЛЯХ: Папка socials -->
               <li class="social-list__item">
                 <a href="#" class="social-list__link"
                   ><img src="images/socials/facebook_white.svg" alt="Facebook"
@@ -680,6 +676,6 @@
       </div>
     </footer>
 
-    <script src="js/main.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

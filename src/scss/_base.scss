@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth; // Додамо плавний скрол для якірних посилань
 }
 
 *,
@@ -12,11 +13,13 @@ html {
 
 body {
   margin: 0;
-  font-family: $Gilroy-font, sans-serif; // Используем ваш базовый шрифт
-  background-color: $bg-color; // Используем ваш цвет фона
-  color: $border-text-btn-color; // Используем ВАШУ переменную для цвета текста
+  font-family: $main-font, sans-serif; // Використовуємо SCSS-змінну для шрифта
   font-size: 16px;
   line-height: 1.5;
+
+  // ВИКОРИСТОВУЄМО CSS-ЗМІННІ ДЛЯ КОЛЬОРІВ
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 img {
@@ -29,4 +32,12 @@ img {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.section-title {
+  font-family: $header-font, sans-serif;
+  font-size: 54px; // Приблизний розмір, підберіть по макету
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

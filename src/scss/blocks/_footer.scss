@@ -1,9 +1,55 @@
+// .footer {
+//   padding: 40px 0;
+//   border-top: 1px solid #dedad1;
+// }
+
+// // --- Мобильная версия  ---
+// .footer__container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 20px;
+// }
+// .footer__copyright {
+//   margin: 0;
+//   font-family: $footer-font, sans-serif;
+//   font-size: 14px;
+//   text-align: center;
+// }
+
+// // Стили для списка иконок
+// .footer__social-list {
+//   display: flex;
+//   align-items: center;
+//   gap: 15px;
+//   padding: 0;
+//   margin: 0;
+//   list-style: none;
+
+//   .social-list__link {
+//     transition: opacity 0.3s ease;
+//     &:hover {
+//       opacity: 0.7;
+//     }
+//   }
+// }
+
+// // --- Адаптация для ПЛАНШЕТА и ДЕСКТОПА ---
+// @include tablet {
+//   .footer__container {
+//     flex-direction: row;
+//     justify-content: space-between;
+//   }
+// }
+
+// Файл: src/scss/blocks/_footer.scss
+
 .footer {
   padding: 40px 0;
-  border-top: 1px solid #dedad1;
+  // ВИКОРИСТОВУЄМО CSS-ЗМІННУ
+  border-top: 1px solid var(--border-color);
 }
 
-// --- Мобильная версия  ---
 .footer__container {
   display: flex;
   flex-direction: column;
@@ -15,9 +61,10 @@
   font-family: $footer-font, sans-serif;
   font-size: 14px;
   text-align: center;
+  // ВИКОРИСТОВУЄМО CSS-ЗМІННУ
+  color: var(--subtle-text-color);
 }
 
-// Стили для списка иконок
 .footer__social-list {
   display: flex;
   align-items: center;
@@ -25,7 +72,6 @@
   padding: 0;
   margin: 0;
   list-style: none;
-
   .social-list__link {
     transition: opacity 0.3s ease;
     &:hover {
@@ -34,7 +80,6 @@
   }
 }
 
-// --- Адаптация для ПЛАНШЕТА и ДЕСКТОПА ---
 @include tablet {
   .footer__container {
     flex-direction: row;
